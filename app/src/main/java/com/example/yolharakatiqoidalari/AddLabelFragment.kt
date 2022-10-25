@@ -64,7 +64,7 @@ class AddLabelFragment : Fragment() {
             myDbHelper.addLabel(user)
             list.add(user)
             Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
-            
+
             findNavController().navigate(com.example.yolharakatiqoidalari.R.id.homeFragment)
         }
             }
