@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.yolharakatiqoidalari.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/addLabelFragment"
+        android:name="com.example.yolharakatiqoidalari.AddLabelFragment"
+        android:label="fragment_add_label"
+        tools:layout="@layout/fragment_add_label" />
+    <fragment
+        android:id="@+id/recyclerFragment"
+        android:name="com.example.yolharakatiqoidalari.RecyclerFragment"
+        android:label="fragment_recycler"
+        tools:layout="@layout/fragment_recycler" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.yolharakatiqoidalari.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/likedFragment"
+        android:name="com.example.yolharakatiqoidalari.LikedFragment"
+        android:label="fragment_liked"
+        tools:layout="@layout/fragment_liked" />
+    <fragment
+        android:id="@+id/aboutLabelFragment"
+        android:name="com.example.yolharakatiqoidalari.AboutLabelFragment"
+        android:label="fragment_about_label"
+        tools:layout="@layout/fragment_about_label" />
+</navigation>
