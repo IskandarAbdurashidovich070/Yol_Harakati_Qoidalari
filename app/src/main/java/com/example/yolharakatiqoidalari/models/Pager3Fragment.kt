@@ -1,46 +1,35 @@
-package com.example.yolharakatiqoidalari
+package com.example.yolharakatiqoidalari.models
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.yolharakatiqoidalari.R
 import com.example.yolharakatiqoidalari.adapters.Click
 import com.example.yolharakatiqoidalari.adapters.MyRvAdapter
-import com.example.yolharakatiqoidalari.databinding.FragmentRecyclerBinding
+import com.example.yolharakatiqoidalari.databinding.FragmentLikedBinding
+import com.example.yolharakatiqoidalari.databinding.FragmentPager3Binding
 import com.example.yolharakatiqoidalari.db.MyDbHelper
-import com.example.yolharakatiqoidalari.models.Data
-import com.example.yolharakatiqoidalari.models.User
 
-class RecyclerFragment : Fragment(), Click {
-    private lateinit var binding: FragmentRecyclerBinding
-    private lateinit var myDbHelper: MyDbHelper
+class Pager3Fragment : Fragment(), Click {
+    private lateinit var binding: FragmentPager3Binding
     private lateinit var rvAdapter: MyRvAdapter
+    private lateinit var myDbHelper: MyDbHelper
     private lateinit var list: ArrayList<User>
-    private lateinit var listSpinner: ArrayList<String>
-    private lateinit var user: User
-    var index: Int = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRecyclerBinding.inflate(layoutInflater)
+        binding = FragmentPager3Binding.inflate(layoutInflater)
 
-
-        user = User()
-        listSpinner = ArrayList()
-
-        listSpinner.add("Ogohlantiruvchi")
-        listSpinner.add("Imtiyozli")
-        listSpinner.add("Taqiqlovchi")
-        listSpinner.add("Buyuruvchi")
 
         myDbHelper = MyDbHelper(context)
         list = ArrayList()
         for (i in myDbHelper.getLabel()){
-            if (i.type == "0"){
+            if (i.type == "2"){
                 list.add(i)
             }
         }
@@ -49,17 +38,10 @@ class RecyclerFragment : Fragment(), Click {
         binding.rv.adapter = rvAdapter
 
 
-        listSpinner.forEach {
-            if (it == Data.user.type) {
-                index = listSpinner.indexOf(it)
-            }
-        }
 
 
         return binding.root
-
-    }
-
+        }
 
     override fun onLiked(user: User, position: Int, view: ImageView) {
         if (user.like == 0){
@@ -96,5 +78,4 @@ class RecyclerFragment : Fragment(), Click {
         Data.user = user
         findNavController().navigate(R.id.aboutLabelFragment)
     }
-
 }
